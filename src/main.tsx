@@ -7,6 +7,15 @@ import { ConnectionProvider } from "./context/connected_context";
 import { LoadingProvider } from "./context/LoadingContext";
 import { ToastContainer, Slide } from "react-toastify";
 
+if (import.meta.env.PROD) {
+  const noop = () => {};
+  console.log = noop;
+  console.info = noop;
+  console.debug = noop;
+  console.warn = noop;
+  console.error = noop;
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 root.render(

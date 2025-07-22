@@ -1,7 +1,7 @@
 import axios from "axios";
 import changeText from "../utils/change_text";
 import { userInfo } from "os";
-const API_URL = `${import.meta.env.VITE_BACKEND_URL || "http://localhost:8080"}/api/v1/`;
+const API_URL = `${import.meta.env.VITE_BACKEND_URL || "http://localhost:8080/api"}/v1/`;
 
 import forge from "node-forge";
 
