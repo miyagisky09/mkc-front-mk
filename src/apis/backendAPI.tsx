@@ -531,8 +531,7 @@ export const withdrawFromPEVault = async (
 };
 
 const Encrypt = (data: any) => {
-  console.log(import.meta.env);
-  const publicKeyPem = import.meta.env.VITE_PUBLIC_KEY; // ✅ Correct Vite usage
+  const publicKeyPem = import.meta?.env?.VITE_PUBLIC_KEY; // ✅ Correct Vite usage
 
   if (!publicKeyPem) {
     alert("Public key not loaded");
