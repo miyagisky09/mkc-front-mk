@@ -7,7 +7,7 @@ import { ConnectionProvider } from "./context/connected_context";
 import { LoadingProvider } from "./context/LoadingContext";
 import { ToastContainer, Slide } from "react-toastify";
 
-if (import.meta.env.PROD) {
+if (import.meta?.env?.PROD) {
   const noop = () => {};
   console.log = noop;
   console.info = noop;
