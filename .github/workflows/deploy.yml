@@ -26,4 +26,5 @@ jobs:
             export PATH=$HOME/.nvm/versions/node/v22.17.1/bin:$PATH
             git pull origin main
             npm install
+            npm run build
             pm2 restart 1
