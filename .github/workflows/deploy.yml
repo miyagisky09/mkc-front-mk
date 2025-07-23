@@ -23,6 +23,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd /home/ubuntu/MKC1
+            export PATH=$HOME/.nvm/versions/node/v22.17.1/bin:$PATH
             git pull origin main
             npm install
             pm2 restart 1
