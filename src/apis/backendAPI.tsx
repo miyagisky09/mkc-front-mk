@@ -227,7 +227,7 @@ export const nftMint = async (quantity: number, userId: number) => {
   try {
     const encryptedPayload = Encrypt({ quantity, userId });
     const response: any = await axiosInstance.post(`/user/nftMint`, {
-      encryptedPayload,
+      payloads: encryptedPayload,
     });
 
     const { encryptedKey, encryptedData } = response.data;
