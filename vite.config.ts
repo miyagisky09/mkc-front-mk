@@ -4,12 +4,11 @@ import obfuscator from 'vite-plugin-javascript-obfuscator';
 import strip from '@rollup/plugin-strip';
 
 export default defineConfig(({ mode }) => {
-  const isDevelopment = mode === 'development';
-  console.log(mode)
+  const isProduction = mode === 'production';
 
   const plugins = [
     react(),
-    ...(!isDevelopment
+    ...(isProduction
       ? [
           strip({
             include: ['**/*.js', '**/*.ts', '**/*.vue', '**/*.tsx', '**/*.jsx'],
@@ -33,8 +32,8 @@ export default defineConfig(({ mode }) => {
       minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: !isDevelopment,
-          drop_debugger: !isDevelopment,
+          drop_console: isProduction,
+          drop_debugger: isProduction,
         },
       },
     },
