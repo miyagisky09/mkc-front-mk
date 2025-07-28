@@ -438,6 +438,20 @@ export const withdrawFromDCAVault = async (
   }
 };
 
+export const pauseDCAVault = async (
+  dcaVaultId: number,
+) => {
+  try {
+    const response: any = await axiosInstance.post(
+      `/user/pauseDCAVault`,
+      { dcaVaultId }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getAllUsers = async (userId: number) => {
   try {
     const encryptedPayload = Encrypt({ userId });
