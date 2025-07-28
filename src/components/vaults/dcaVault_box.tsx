@@ -115,12 +115,12 @@ const DCAVault_box = () => {
                       aria-label="lab API tabs example"
                     >
                       <Tab
-                        sx={{ fontSize: 14, p: 0, textTransform: 'capitalize' }}
+                        sx={{ fontSize: 14, p: 0, textTransform: "capitalize" }}
                         label="Investment"
                         value="1"
                       />
                       <Tab
-                        sx={{ fontSize: 14, p: 0, textTransform: 'capitalize' }}
+                        sx={{ fontSize: 14, p: 0, textTransform: "capitalize" }}
                         label="Running Status"
                         value="2"
                       />
@@ -138,6 +138,7 @@ const DCAVault_box = () => {
                     <RunningStatus
                       user={user}
                       dcaData={dcaData}
+                      setDcaData={setDcaData}
                       setOpenWithdraw={setOpenWithdraw}
                       setWithdrawItem={setWithdrawItem}
                     />
@@ -191,13 +192,13 @@ const DCAVault_box = () => {
           </div>
         </div>
         {openWithdraw && (
-        <DCAWithdrawModal
-          withdrawItem={withdrawItem}
-          setDcaData={setDcaData}
-          setDcaTransactions={setDcaTransactions}
-          setOpenWithdraw={setOpenWithdraw}
-        />
-      )}
+          <DCAWithdrawModal
+            withdrawItem={withdrawItem}
+            setDcaData={setDcaData}
+            setDcaTransactions={setDcaTransactions}
+            setOpenWithdraw={setOpenWithdraw}
+          />
+        )}
       </ThemeProvider>
     </>
   );
