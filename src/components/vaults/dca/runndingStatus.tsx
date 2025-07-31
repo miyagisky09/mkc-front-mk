@@ -136,11 +136,13 @@ const RunningStatus = ({
                   </div>
                   <div className="flex justify-between items-center">
                     <p className="text-[#888888]">Purchase Cycle</p>
-                    <p>{item.cycle} days</p>
+                    <p>{item.cycle} day{item.cycle > 1 ? "s" : ""}</p>
                   </div>
                   <div className="flex justify-between items-center">
                     <p className="text-[#888888]">Duration</p>
-                    <p>{item.lockPeriod} days</p>
+                    <p>
+                      {item.lockPeriod} day{item.lockPeriod > 1 ? "s" : ""}
+                    </p>
                   </div>
                   <div className="flex justify-between gap-2">
                     <button
