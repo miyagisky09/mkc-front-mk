@@ -78,6 +78,7 @@ const PEVault_box = () => {
             setWithdrawModal={setWithdrawModal}
             withdrawDisabled={(peVaultPlans[key]?.lockPeriod || 0) < periodObject[key]}
             peLockRequired={periodObject[key]}
+            depositDisabled={true}
           />
         ))}
       </ul>
