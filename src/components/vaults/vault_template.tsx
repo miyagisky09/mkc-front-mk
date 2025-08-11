@@ -98,10 +98,15 @@ const VaultsTemplate = (props: Props) => {
         ) : (
           <div className="flex w-[100%]  md:w-[30%] items-center max-md:justify-between max-md:my-4 md:flex-col gap-4 md:gap-14">
             <button
-              className="w-[169px] h-[37px] rounded-lg bg-[#30B0C7] font-btn text-[16px] font-medium  flex items-center justify-center text-white"
+              className={`w-[169px] h-[37px] rounded-lg font-btn text-[16px] font-medium flex items-center gap-1 justify-center ${
+                !props.depositDisabled
+                  ? "bg-[#30B0C7] text-white"
+                  : "bg-[#196f7f] text-[#fffa]"
+              }`}
               onClick={openDepositModal}
               disabled={props.depositDisabled}
             >
+              {props.depositDisabled && <FaBan />}
               Deposit
             </button>
             <button

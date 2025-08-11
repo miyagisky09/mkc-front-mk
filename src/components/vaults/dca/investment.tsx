@@ -109,7 +109,6 @@ const Investment = ({
   const [data, setData] = useState<any>({
     token: "BTC",
     amount: "",
-    period: "",
     cycle: "",
   });
 
@@ -164,11 +163,6 @@ const Investment = ({
   };
 
   const handleSubmit = async () => {
-    if (Number(data.period) < Number(data.cycle)) {
-      toast.info("Period should be longer than Purchase cycle");
-      return;
-    }
-
     if (Number(data.amount) > user.mkBalance) {
       toast.info("Amount should be less than MK Balance");
       return;
@@ -244,7 +238,7 @@ const Investment = ({
             <input
               type="number"
               name="amount"
-              placeholder="Amount"
+              placeholder="Amount per cycle"
               onChange={handleChange}
               value={data.amount}
               className=" placeholder:text-[14px] font-[400] text-[16px] text-white bg-inherit placeholder:text-[#888888] rounded-lg outline-none px-2 w-[87%] font-btn"
@@ -265,28 +259,6 @@ const Investment = ({
             <div className="flex">
               <input
                 type="number"
-                name="period"
-                placeholder="Period"
-                onChange={handleChange}
-                value={data.period}
-                className=" placeholder:text-[14px] font-[400] text-[16px] text-white bg-inherit placeholder:text-[#888888] rounded-lg outline-none px-2 w-[87%] font-btn"
-              />
-              <p className="text-[14px] text-white flex items-center">Days</p>
-            </div>
-            <Slider
-              aria-label="Custom marks"
-              defaultValue={0}
-              value={Number(data.period)}
-              step={1}
-              valueLabelDisplay="auto"
-              onChange={handleChange}
-              name="period"
-            />
-          </div>
-          <div className="flex flex-col self-center rounded-lg px-4 py-2 bg-[#2C323D]">
-            <div className="flex">
-              <input
-                type="number"
                 name="cycle"
                 placeholder="Purchase cycle"
                 onChange={handleChange}
@@ -298,17 +270,16 @@ const Investment = ({
             </div>
             <Slider
               aria-label="Custom marks"
-              defaultValue={0}
+              defaultValue={1}
               value={Number(data.cycle)}
               step={1}
               valueLabelDisplay="auto"
               onChange={handleChange}
               name="cycle"
-              max={Number(data.period)}
             />
           </div>
           <Button
-            disabled={!data.amount || !data.period || !data.cycle}
+            disabled={!data.amount || !data.cycle}
             onClick={handleSubmit}
             text="Invest Now"
             className="!w-[100%] mt-2 !h-[40px]"

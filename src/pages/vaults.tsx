@@ -131,8 +131,8 @@ const Vaults = () => {
                 setDepositModal={setDepositModal}
               />
             ) : vaultType == ButtonValue[1] ? (
-              // <DCAVault_box />
-              <p className="text-white">Under maintenance</p>
+              <DCAVault_box />
+              // <p className="text-white">Under maintenance</p>
             ) : (
               <PEVault_box />
             )}
