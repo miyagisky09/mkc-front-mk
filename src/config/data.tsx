@@ -11,6 +11,11 @@ export const TokenData = [
     icon: "/images/vaults/dca/hype.png",
   },
   {
+    label: "Tether Gold",
+    value: "XAUT",
+    icon: "/images/vaults/dca/xaut.png",
+  },
+  {
     label: "ETH",
     value: "ETH",
     icon: "/images/vaults/dca/eth.svg",
