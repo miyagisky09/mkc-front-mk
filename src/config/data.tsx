@@ -6,14 +6,19 @@ export const TokenData = [
     icon: "/images/vaults/dca/btc.svg",
   },
   {
+    label: "ETH",
+    value: "ETH",
+    icon: "/images/vaults/dca/eth.svg",
+  },
+  {
     label: "HYPE",
     value: "HYPE",
     icon: "/images/vaults/dca/hype.png",
   },
   {
-    label: "ETH",
-    value: "ETH",
-    icon: "/images/vaults/dca/eth.svg",
+    label: "Tether Gold",
+    value: "XAUT",
+    icon: "/images/vaults/dca/xaut.png",
   },
   {
     label: "BNB",
