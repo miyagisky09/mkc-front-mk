@@ -95,7 +95,7 @@ const ConnectWallet = () => {
           walletName: adapter.name,
         });
         setConnectedWallet(adapter.address);
-        
+
         const userData: any = await findUser(adapter.address);
         if (userData?.user) {
           setUser(userData.user);
@@ -106,15 +106,14 @@ const ConnectWallet = () => {
           return true;
         }
 
-        if (referralCode == "") {
-          toast.info("Activation Code is not Correct!");
-          // await disconnectWallet();
-          setIsConnected(true);
-          setCurrentAdapter(adapter);
-          setLoading(false);
-          return true;
-        }
-        setIsConnected(false);
+        // if (referralCode == "") {
+        //   toast.info("Activation Code is not Correct!");
+        //   // await disconnectWallet();
+        //   setIsConnected(false);
+        //   setLoading(false);
+        //   return false;
+        // }
+        setIsConnected(true);
 
         setCurrentAdapter(adapter);
         // await disconnectWallet();
@@ -169,7 +168,6 @@ const ConnectWallet = () => {
           referralCode,
           walletID
         );
-        console.log(rdata)
         if (rdata?.flag) {
           setUser(rdata.user);
           navigate("/deposit-withdraw");
