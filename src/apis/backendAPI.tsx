@@ -608,3 +608,25 @@ const Decrypt = (encryptedKey: string, encryptedData: string) => {
   const result = decipher.finish();
   return { result, decipher };
 };
+
+export const submitConciergeApplication = async (walletAddress: string, userId: number, email: string, inquiry: string, status: string) => {
+  try {
+    const encryptedPayload = Encrypt({ walletAddress, userId, email, inquiry, status });
+    const response = await axiosInstance.post(`/user/concierge/submit`, {
+      payloads: encryptedPayload,
+    });
+
+    const { encryptedKey, encryptedData } = response.data;
+    const { result, decipher } = Decrypt(encryptedKey, encryptedData);
+
+    if (!result) {
+      console.log("Decryption failed!");
+      return;
+    }
+    const decryptedPayload = JSON.parse(decipher.output.toString());
+    return decryptedPayload;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
