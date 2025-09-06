@@ -79,7 +79,7 @@ const DesktopNavBar = () => {
           <Link
             to={"/concierge"}
             className={`text-[16px] font-[400] font-btn ${
-              path.pathname === "/affiliate"
+              path.pathname === "/concierge"
                 ? " text-[#30B0C7]"
                 : "text-[#FFFFFF]"
             }`}
