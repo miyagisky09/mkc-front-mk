@@ -19,6 +19,7 @@ const Menu = ({
     { text: "NFT", link: "/nfts" },
     { text: "Vault", link: "/vaults" },
     { text: "Affiliate", link: "/affiliate" },
+    { text: "Concierge", link: "/concierge" }
   ]
 
   return (

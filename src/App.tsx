@@ -6,6 +6,7 @@ import Deposit from "./pages/deposit-withdraw";
 import Affiliate from "./pages/affiliate";
 import Vaults from "./pages/vaults";
 import NFTs from "./pages/nfts";
+import Concierge from "./pages/concierge";
 import NotFoundRedirect from "./pages/notfound";
 import ProtectedRoute from "./components/shared/protected_routes";
 import ResponsiveNav from "./components/shared/responsive_nav";
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/vaults" element={<Vaults />} />
           <Route path="/affiliate" element={<Affiliate />} />
           <Route path="/nfts" element={<NFTs />} />
+          <Route path="/concierge" element={<Concierge />} />
           <Route path="*" element={<NotFoundRedirect />} />
         </Route>
 
