@@ -106,13 +106,13 @@ const ConnectWallet = () => {
           return true;
         }
 
-        // if (referralCode == "") {
-        //   toast.info("Activation Code is not Correct!");
-        //   // await disconnectWallet();
-        //   setIsConnected(false);
-        //   setLoading(false);
-        //   return false;
-        // }
+        if (referralCode == "") {
+          toast.info("Activation Code is not Correct!");
+          // await disconnectWallet();
+          setIsConnected(false);
+          setLoading(false);
+          return false;
+        }
         setIsConnected(true);
 
         setCurrentAdapter(adapter);

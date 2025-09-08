@@ -16,7 +16,7 @@ import RoleUpCard from "../components/affiliate/roleUpCard";
 const Affiliate = () => {
   const { user } = useConnection();
   const { setLoading } = useLoadingContext();
-  const referralLink = `${window.location.origin}/#/?ref=${user.referralCode}`;
+  const referralLink = `${window.location.origin}?ref=${user.referralCode}`;
   const [copied, setCopied] = useState<boolean>(false);
 
   const [search, setSearch] = useState<string>("");
