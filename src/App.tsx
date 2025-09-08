@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import NavBar from "./components/shared/mobile_nav";
 import ConnectWallet from "./pages/connect_wallet";
@@ -14,7 +14,7 @@ import LoadingSpinner from "./components/loadingSpinner";
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <LoadingSpinner />
       <ResponsiveNav />
       <Routes>
@@ -32,7 +32,7 @@ const App = () => {
 
         <Route path="*" element={<NotFoundRedirect />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
