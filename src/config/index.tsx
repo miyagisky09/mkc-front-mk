@@ -98,7 +98,7 @@ export const RoleShareRate: any = {
   'No Role': 0,
 }
 
-export const ButtonValue: string[] = ['mkVault', 'dcaVault', 'peVault'];
+export const ButtonValue: string[] = ['stableVault', 'dcaVault', 'peVault', 'mkVault'];
 
 export const RolesUpData = [
     {
