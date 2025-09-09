@@ -82,7 +82,7 @@ const Concierge = () => {
             <input
               type="text"
               id="id"
-              value={user?.id || "Not connected"}
+              value={user?.mkWalletID || "Not connected"}
               disabled
               className="w-full p-2 bg-[#1F2937] rounded-xl text-[16px] outline-none"
             />

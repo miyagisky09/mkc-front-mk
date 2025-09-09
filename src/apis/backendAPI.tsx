@@ -544,6 +544,50 @@ export const withdrawFromPEVault = async (
   }
 };
 
+export const getMkVaults = async (userId: number) => {
+  try {
+    const response: any = await axiosInstance.post(`/user/getMkVaults`, {
+      userId,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const depositToMkVault = async (
+  userId: number,
+  amount: number
+) => {
+  try {
+    const response: any = await axiosInstance.post(`/user/depositToMkVault`, {
+      userId,
+      amount,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const withdrawFromMkVault = async (
+  userId: number,
+  vaultId: number,
+  withdrawAmount: number,
+  fee: number
+) => {
+  try {
+    const response: any = await axiosInstance.post(
+      `/user/withdrawFromMkVault`,
+      { userId, vaultId, withdrawAmount, fee }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const Encrypt = (data: any) => {
   const publicKeyPem = import.meta.env.VITE_PUBLIC_KEY; // ✅ Correct Vite usage
 

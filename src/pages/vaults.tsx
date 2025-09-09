@@ -10,10 +10,19 @@ import { ButtonValue, RoleShareRate, VaultVsRole } from "../config";
 import WithdrawModal from "../components/vaults/withdraw_modal";
 import MyCard from "../components/affiliate/myCard";
 import { AnimatePresence, motion } from "motion/react";
-import MKVault_box from "../components/vaults/mkVault_box";
+import StableVault_box from "../components/vaults/stableVault_box";
 import DCAVault_box from "../components/vaults/dcaVault_box";
 import PEVault_box from "../components/vaults/peVault_box";
+import MKVault_box from "../components/vaults/mkVault_box";
 import { DefaultVaultPlans, VaultTransactionIcon } from "../config/data";
+import {
+  createTheme,
+  FormControl,
+  ListItemText,
+  MenuItem,
+  Select,
+  ThemeProvider,
+} from "@mui/material";
 
 const Vaults = () => {
   const { user } = useConnection();
@@ -62,10 +71,17 @@ const Vaults = () => {
   const [vaultType, setVaultType] = useState<string>(ButtonValue[0]);
   const [motionKey, setMotionKey] = useState<number>(0);
 
-  const handleClick = (e: any, key: number) => {
+  const handleClick = (e: any) => {
     setVaultType(e.target.value);
-    setMotionKey(key);
+    const index = ButtonValue.map((item) => item).indexOf(e.target.value);
+    setMotionKey(index);
   };
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
 
   return (
     <PageBackground className="gap-6 md:gap-10">
@@ -77,39 +93,36 @@ const Vaults = () => {
         <h2 className="font-medium text-white text-[20px] lg:text-[28px]">
           Available Vaults
         </h2>
-        {/* show 3 toggle buttons */}
-        <div className="grid grid-cols-3 rounded-lg shadow-2xs bg-[#1F2937] text-white text-sm">
-          <button
-            onClick={(e: any) => handleClick(e, 0)}
-            value={ButtonValue[0]}
-            type="button"
-            className={`first:rounded-s-lg focus:z-10 border border-[#53585f] disabled:opacity-50 ${
-              ButtonValue[0] == vaultType ? "bg-[#353e48]" : ""
-            }`}
-          >
-            Stable Vault
-          </button>
-          <button
-            value={ButtonValue[1]}
-            onClick={(e: any) => handleClick(e, 1)}
-            type="button"
-            className={`-ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg border border-[#53585f] ${
-              ButtonValue[1] == vaultType ? "bg-[#353e48]" : ""
-            }`}
-          >
-            DCA Vault
-          </button>
-          <button
-            value={ButtonValue[2]}
-            onClick={(e: any) => handleClick(e, 2)}
-            type="button"
-            className={`py-3 -ms-px last:rounded-e-lg focus:z-10 border border-[#53585f] disabled:opacity-50 focus:bg-[#353e48] ${
-              ButtonValue[2] == vaultType ? "bg-[#353e48]" : ""
-            }`}
-          >
-            PE Vault
-          </button>
-        </div>
+        <ThemeProvider theme={darkTheme}>
+          <FormControl fullWidth size="small">
+            <Select
+              value={vaultType}
+              onChange={(e) => handleClick(e)}
+              sx={{ background: "#1b1f2bff", borderRadius: 3, mb: 1 }}
+            >
+              <MenuItem value={ButtonValue[0]}>
+                <div className="flex gap-3">
+                  <ListItemText>Stable Vault</ListItemText>
+                </div>
+              </MenuItem>
+              <MenuItem value={ButtonValue[1]}>
+                <div className="flex gap-3">
+                  <ListItemText>DCA Vault</ListItemText>
+                </div>
+              </MenuItem>
+              <MenuItem value={ButtonValue[2]}>
+                <div className="flex gap-3">
+                  <ListItemText>PE Vault</ListItemText>
+                </div>
+              </MenuItem>
+              <MenuItem value={ButtonValue[3]}>
+                <div className="flex gap-3">
+                  <ListItemText>MK Vault</ListItemText>
+                </div>
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </ThemeProvider>
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -121,7 +134,7 @@ const Vaults = () => {
             className="w-[100%] flex items-start justify-center min-h-[300px]"
           >
             {vaultType == ButtonValue[0] ? (
-              <MKVault_box
+              <StableVault_box
                 user={user}
                 vaultPlans={vaultPlans}
                 vaultType={vaultType}
@@ -132,9 +145,11 @@ const Vaults = () => {
               />
             ) : vaultType == ButtonValue[1] ? (
               <DCAVault_box />
-              // <p className="text-white">Under maintenance</p>
-            ) : (
+            ) : vaultType == ButtonValue[2] ? (
               <PEVault_box />
+            ) : (
+              // <p className="text-white">Under maintenance</p>
+              <MKVault_box />
             )}
           </motion.div>
         </AnimatePresence>
