@@ -77,12 +77,12 @@ const Concierge = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="id" className="text-[16px] font-medium">
-              ID
+              MK ID
             </label>
             <input
               type="text"
               id="id"
-              value={user?.id || "Not connected"}
+              value={user?.mkWalletID || "Not connected"}
               disabled
               className="w-full p-2 bg-[#1F2937] rounded-xl text-[16px] outline-none"
             />
