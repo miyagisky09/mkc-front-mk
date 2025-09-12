@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite --mode developement",
+    "dev": "npx vite --mode development",
     "build": "tsc -b && vite build --mode production",
     "start": "npx serve dist -l 5173 ",
     "test": "vitest",
