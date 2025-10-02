@@ -23,6 +23,7 @@ const transactionIcon: any = {
   "DCA Deposit": "/images/vaults/deposit.svg",
   "DCA Withdraw": "/images/vaults/withdrawal.svg",
   "Daily Earning": "/images/vaults/yield_reward.svg",
+  "DCA Purchase": "/images/vaults/yield_reward.svg",
 };
 
 const DCAVault_box = () => {
